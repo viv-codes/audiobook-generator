@@ -20,12 +20,14 @@ def epub2txt(epubPath):
 
 def txt2mp3(chapterSet, epubPath):
     chapterCount = 0
-    os.mkdir(epubPath)
-    os.chdir(epubPath)
+    title = input("Enter title: ")
+    os.mkdir(title)
+    os.chdir(title)
     for chapter in chapterSet:
         chapterCount = chapterCount + 1
         tts = gTTS(chapter)
-        tts.save("Chapter " + chapterCount)
+        chapterTitle = "Chapter "+str(chapterCount)
+        tts.save(chapterTitle)
 
 
 if __name__ == '__main__':
